@@ -1,0 +1,20 @@
+<body>
+  <a [routerLink]="['/dash']">Back to Polls</a>
+  <br><br>
+  <h2>{{ question.question }}</h2>
+  <br><br>
+  <p>Click the vote button to vote for one</p>
+  <br><br>
+  <table>
+    <tr>
+      <th>Option</th>
+      <th>Current votes</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let i of question.option">
+      <td>{{ i.option }}</td>
+      <td>{{ i.vote }}</td>
+      <td><button (click)="onVote(i._id)">Vote</button></td>
+    </tr>
+  </table>
+</body>

@@ -1,0 +1,11 @@
+<body>
+  <h2>Poll</h2>
+  <form (submit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" name="name" required minlength="3" [(ngModel)]="name" #err='ngModel'>
+    <h5 *ngIf="!err.valid">Name requires at least 3 characters</h5>
+    <br><br>
+    <input *ngIf="!(err.valid)" disabled=true type="submit" value="Submit">
+    <input *ngIf="err.valid" type="submit" value="Submit">
+  </form>
+</body>

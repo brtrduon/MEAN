@@ -1,0 +1,33 @@
+<body>
+  <a [routerLink]="['/dash']">Cancel</a>
+  <h1>Add questions and options</h1>
+  <form (submit)="onSubmit()">
+    <label>Question</label>
+    <input type="text" name="question" required minlength="8" [(ngModel)]="question" #err='ngModel'>
+    <br><br>
+    <h5 *ngIf="!err.valid">Question requires at least 8 characters</h5>
+    <br><br>
+    <label>Option 1</label>
+    <input type="text" name="option1" required minlength="3" [(ngModel)]="option1" #err1='ngModel'>
+    <br><br>
+    <h5 *ngIf="!err1.valid">Option 1 requires at least 3 characters</h5>
+    <br><br>
+    <label>Option 2</label>
+    <input type="text" name="option2" required minlength="3" [(ngModel)]="option2" #err2='ngModel'>
+    <br><br>
+    <h5 *ngIf="!err2.valid">Option 2 requires at least 3 characters</h5>
+    <br><br>
+    <label>Option 3</label>
+    <input type="text" name="option3" required minlength="3" [(ngModel)]="option3" #err3='ngModel'>
+    <br><br>
+    <h5 *ngIf="!err3.valid">Option 3 requires at least 3 characters</h5>
+    <br><br>
+    <label>Option 4</label>
+    <input type="text" name="option4" required minlength="3" [(ngModel)]="option4" #err4='ngModel'>
+    <br><br>
+    <h5 *ngIf="!err4.valid">Option requires at least 3 characters</h5>
+    <br><br>
+    <input *ngIf="!(err.valid) || !(err1.valid) || !(err2.valid) || !(err3.valid) || !(err4.valid)" disabled=true type="submit" value="Create Poll">
+    <input *ngIf="err.valid && err1.valid && err2.valid && err3.valid && err4.valid" type="submit" value="Create Poll">
+  </form>
+</body>
